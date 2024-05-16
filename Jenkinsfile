@@ -6,6 +6,9 @@ pipeline {
             steps {
                 script {
                     // Clonar el repositorio
+                    sh'cd / '
+                    sh 'git init && git remote add origin https://github.com/rduserjob/pipeline.git && git pull'
+                    sh 'git checkout main -f && git branch --set-upstream-to origin/main'
                     sh 'git clone https://github.com/rduserjob/pipeline.git'
                     // Construir la imagen Docker
                     sh 'ls -l && pwd'
