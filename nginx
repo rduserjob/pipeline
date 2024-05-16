@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:1.25.5
 # Expone el puerto 80 para que el servidor Nginx sea accesible desde fuera del contenedor
 EXPOSE 8083
 
