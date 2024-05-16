@@ -15,7 +15,7 @@ pipeline {
                     //Chequear la imagen creada
                     sh 'docker images'
                     // Chequear con Hadolint
-                    sh 'hadolint /var/lib/jenkins/workspace/test/nginx' 
+                    sh 'docker run --rm -i hadolint/hadolint < /var/lib/jenkins/workspace/test/nginx' 
                 }
             }
         }
