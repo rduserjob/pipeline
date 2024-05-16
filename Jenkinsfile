@@ -9,7 +9,7 @@ pipeline {
                     // sh 'git clone https://github.com/rduserjob/pipeline.git'
                     // Construir la imagen Docker
                     sh 'ls -l && pwd'
-                    sh 'docker build -t -f /var/lib/jenkins/workspace/test/nginx ngninx .'
+                    sh 'docker build -f /var/lib/jenkins/workspace/test/nginx -t ngninx .'
                 }
             }
         }
