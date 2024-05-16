@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Clonar el repositorio
-                    //git 'https://github.com/rduserjob/pipeline/nginx'
+                    git 'https://github.com/rduserjob/pipeline/nginx'
                     // Construir la imagen Docker
                     sh 'ls -l && pwd'
                     sh 'docker build -t ngninx .'
