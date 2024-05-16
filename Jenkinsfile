@@ -10,6 +10,8 @@ pipeline {
                     // Construir la imagen Docker
                     sh 'ls -l && pwd'
                     sh 'docker build -f /var/lib/jenkins/workspace/test/nginx -t nginx .'
+                    //Chequear la imagen creada
+                    sh'docker images'
                 }
             }
         }
@@ -18,6 +20,10 @@ pipeline {
                 script {
                     // Levantar el contenedor
                     sh 'docker run -d --name my-app-container nginx'
+                    //chequear que el contenedor este corriendo
+                    sh'docker  ps'
+                    // Para Testear el correcto funcionamiento
+                    sh'curl localhost:8083'
                 }
             }
         }
