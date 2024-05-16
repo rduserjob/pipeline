@@ -8,14 +8,14 @@ pipeline {
                     // Clonar el repositorio
                     // sh 'git clone https://github.com/rduserjob/pipeline.git'
                     //Instalamos Hadolint para chequear la imagen
-                    docker pull hadolint/hadolint
+                    sh 'docker pull hadolint/hadolint'
                     // Construir la imagen Docker
                     sh 'ls -l && pwd'
                     sh 'docker build -f /var/lib/jenkins/workspace/test/nginx -t nginx .'
                     //Chequear la imagen creada
-                    sh'docker images'
+                    sh 'docker images'
                     // Chequear con Hadolint
-                    sh'hadolint /var/lib/jenkins/workspace/test/nginx' 
+                    sh 'hadolint /var/lib/jenkins/workspace/test/nginx' 
                 }
             }
         }
