@@ -8,7 +8,7 @@ pipeline {
                     // Clonar el repositorio
                     //git 'https://github.com/rduserjob/pipeline/nginx'
                     // Construir la imagen Docker
-                    sh 'docker build -t ngninx .'
+                    sh 'sudo docker build -t ngninx .'
                 }
             }
         }
@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     // Levantar el contenedor
-                    sh 'docker run -d --name my-app-container nginx'
+                    sh 'sudo docker run -d --name my-app-container nginx'
                 }
             }
         }
@@ -24,11 +24,11 @@ pipeline {
             steps {
                 script {
                     // Iniciar sesión en DockerHub
-                    sh 'docker login -u tu_usuario_dockerhub -p tu_contraseña_dockerhub'
+                    sh 'sudo docker login -u tu_usuario_dockerhub -p tu_contraseña_dockerhub'
                     // Etiquetar la imagen
-                    sh 'docker tag my-app tu_usuario_dockerhub/my-app'
+                    sh 'sudo docker tag my-app tu_usuario_dockerhub/my-app'
                     // Subir la imagen a DockerHub
-                    sh 'docker push tu_usuario_dockerhub/my-app'
+                    sh 'sudo docker push tu_usuario_dockerhub/my-app'
                 }
             }
         }
