@@ -6,9 +6,9 @@ pipeline {
             steps {
                 script {
                     // Clonar el repositorio
-                    git 'https://github.com/rduserjob/pipeline/tu_repositorio.git'
+                    git 'https://github.com/rduserjob/pipeline/Jenkinsfile.git'
                     // Construir la imagen Docker
-                    sh 'docker build -t my-app .'
+                    sh 'docker build -t ngninx .'
                 }
             }
         }
@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     // Levantar el contenedor
-                    sh 'docker run -d --name my-app-container my-app'
+                    sh 'docker run -d --name my-app-container nginx'
                 }
             }
         }
