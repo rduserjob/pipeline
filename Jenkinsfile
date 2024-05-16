@@ -8,7 +8,7 @@ pipeline {
                     // Clonar el repositorio
                     //git 'https://github.com/rduserjob/pipeline/nginx'
                     // Construir la imagen Docker
-                    sh 'pwd'
+                    sh 'ls -l && pwd'
                     sh 'docker build -t ngninx .'
                 }
             }
