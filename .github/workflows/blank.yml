@@ -17,13 +17,13 @@ jobs:
       uses: docker/setup-buildx-action@v1
 
     - name: Login to DockerHub
-      run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+      run: echo "${{ caramelos1 }}" | docker login -u "${{oahp }}" --password-stdin
 
     - name: Build Docker image
-      run: docker buildx build --platform linux/amd64,linux/arm64 -t nombre_de_usuario/nombre_de_la_imagen:latest .
+      run: docker buildx build --platform linux/amd64,linux/arm64 -t oahp/oahp:latest .
 
     - name: Push Docker image to DockerHub
-      run: docker push nombre_de_usuario/nombre_de_la_imagen:latest
+      run: docker push oahp/oahp:latest
 
     - name: Run Docker container
-      run: docker run -d --name my_container nombre_de_usuario/nombre_de_la_imagen:latest
+      run: docker run -d --name my_container oahp/oahp:latest
