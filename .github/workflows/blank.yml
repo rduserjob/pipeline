@@ -44,7 +44,7 @@ jobs:
       run: docker ps
 
     - name: Chequear el servicio
-      run: curl localhost:8083
+      run: curl 127.0.0.1
 
 
   
