@@ -23,7 +23,7 @@ jobs:
       run: pwd && ls -l
       
     - name: Build Docker image
-      run: docker buildx build  -f /home/runner/work/pipeline/pipeline/nginx -t oahpnginx .
+      run: docker  build  -f /home/runner/work/pipeline/pipeline/nginx -t oahpnginx .
 
     - name: sleep
       run: sleep 10
