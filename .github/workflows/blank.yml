@@ -19,16 +19,16 @@ jobs:
     - name: Login to DockerHub
       run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
-    - name: Build Docker image
+    - name: Chequear en que directorio estamos
       run: pwd && ls -l
       
     - name: Build Docker image
-      run: docker buildx build --platform linux/amd64,linux/arm64 -t oahp/osmarubuntu:latest .
+      run: docker buildx build --platform linux/amd64,linux/arm64 -t /home/runner/work/pipeline/pipeline/nginx:latest .
 
     - name: Push Docker image to DockerHub
-      run: docker push oahp/osmarubuntu:latest
+      run: docker push oahp/nginx:latest
 
     - name: Run Docker container
-      run: docker run -d --name my_container oahp/osmarubuntun:latest
+      run: docker run -d --name my_container oahp/nginx:latest
 
   
