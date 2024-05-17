@@ -23,8 +23,11 @@ jobs:
       run: pwd && ls -l
       
     - name: Build Docker image
-      run: docker buildx build --platform linux/amd64,linux/arm64 -f /home/runner/work/pipeline/pipeline/nginx -t oahpnginx .
+      run: docker buildx build  -f /home/runner/work/pipeline/pipeline/nginx -t oahpnginx .
 
+    - name: sleep
+      run: sleep 10
+      
     - name: Chequear creacion de la imagen
       run: docker images
      
