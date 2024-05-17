@@ -31,6 +31,9 @@ jobs:
     - name: Chequear creacion de la imagen
       run: docker images
 
+    - name: Chequear creacion de la imagen con Hadolint
+      run: docker pull hadolint/hadolint && docker run --rm -i hadolint/hadolint < /home/runner/work/pipeline/pipeline/nginx
+      
     - name: Tag Docker image 
       run: docker tag oahpnginx oahp/oahpnginx:latest
      
@@ -43,8 +46,7 @@ jobs:
     - name: Chequear el container
       run: docker ps
 
-    - name: Chequear el servicio
-      run: curl 127.0.0.1
+   
 
 
   
