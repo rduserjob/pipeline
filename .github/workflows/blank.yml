@@ -23,7 +23,7 @@ jobs:
       run: pwd && ls -l
       
     - name: Build Docker image
-      run: docker buildx build --platform linux/amd64,linux/arm64 -t /home/runner/work/pipeline/pipeline/nginx -t oahp .
+      run: docker buildx build --platform linux/amd64,linux/arm64 -f /home/runner/work/pipeline/pipeline/nginx -t oahp .
 
     - name: Push Docker image to DockerHub
       run: docker push oahp/oahp
