@@ -40,4 +40,11 @@ jobs:
     - name: Run Docker container
       run: docker run -d --name my_container oahp/oahpnginx:latest
 
+    - name: Chequear el container
+      run: docker ps
+
+    - name: Chequear el servicio
+      run: curl localhost:8083
+
+
   
