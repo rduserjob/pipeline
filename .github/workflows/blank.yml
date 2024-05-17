@@ -30,6 +30,9 @@ jobs:
       
     - name: Chequear creacion de la imagen
       run: docker images
+
+    - name: Tag Docker image 
+      run: docker tag oahpnginx oahp/oahpnginx:latest
      
     - name: Push Docker image to DockerHub
       run: docker push oahp/oahpnginx:latest
