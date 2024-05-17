@@ -32,9 +32,9 @@ jobs:
       run: docker images
      
     - name: Push Docker image to DockerHub
-      run: docker push oahp/oahpnginx
+      run: docker push oahp/oahpnginx:latest
 
     - name: Run Docker container
-      run: docker run -d --name my_container oahp/nginx
+      run: docker run -d --name my_container oahp/nginx:latest
 
   
