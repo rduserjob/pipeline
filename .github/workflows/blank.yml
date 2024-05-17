@@ -38,6 +38,6 @@ jobs:
       run: docker push oahp/oahpnginx:latest
 
     - name: Run Docker container
-      run: docker run -d --name my_container oahp/nginx:latest
+      run: docker run -d --name my_container oahp/oahpnginx:latest
 
   
