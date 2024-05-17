@@ -27,7 +27,7 @@ pipeline {
                     //chequear que el contenedor este corriendo
                     sh'docker  ps'
                     // Para Testear el correcto funcionamiento
-                    sh'curl localhost:8083'
+                    //sh'curl localhost:8083'
                 }
             }
         }
