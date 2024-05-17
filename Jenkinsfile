@@ -35,11 +35,11 @@ pipeline {
             steps {
                 script {
                     // Iniciar sesión en DockerHub
-                    sh 'docker login -u tu_usuario_dockerhub -p tu_contraseña_dockerhub'
+                    sh 'docker login -u oahp -p caramelos1'
                     // Etiquetar la imagen
-                    sh 'docker tag my-app tu_usuario_dockerhub/my-app'
+                    sh 'docker tag nginx oahp/nginxosmar'
                     // Subir la imagen a DockerHub
-                    sh ' docker push tu_usuario_dockerhub/my-app'
+                    sh ' docker push tu_usuario_dockerhub/nginxosmar'
                 }
             }
         }
