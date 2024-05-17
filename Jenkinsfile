@@ -39,7 +39,7 @@ pipeline {
                     // Etiquetar la imagen
                     sh 'docker tag nginx oahp/nginxosmar'
                     // Subir la imagen a DockerHub
-                    sh ' docker push tu_usuario_dockerhub/nginxosmar'
+                    sh ' docker push oahp/nginxosmar'
                 }
             }
         }
