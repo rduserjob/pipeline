@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: sudo systemctl status nginx
+- script: systemctl status nginx
   displayName: 'Run a one-line script'
 
 - script: |
