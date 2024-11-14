@@ -11,7 +11,7 @@ pool:
 
 steps:
 - script: systemctl status nginx
-  displayName: 'Run a one-line script'
+  displayName: 'Run a multi-line script'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
