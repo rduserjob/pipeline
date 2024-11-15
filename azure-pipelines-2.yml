@@ -34,7 +34,7 @@ steps:
       # Checking Nginx Status
       systemctl is-active --quiet nginx
       if [ $? -eq 0 ]; then
-        echo "The Vm was Restarted Sucessfully ."
+        echo "Reiniciando máquina virtual: ${{ parameters.vmName }}"
       else
         echo "Error: Nginx is not active."
         exit 1
