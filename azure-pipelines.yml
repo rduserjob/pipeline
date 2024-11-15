@@ -2,7 +2,7 @@ parameters:
   - name: vmName 
     type: string
     default: 'Default-VM-Name'
-    displayName: 'Nombre de la VM'
+    displayName: 'Name of the VM'
 
 trigger:
 - main
@@ -33,7 +33,7 @@ steps:
       # Checking Nginx Status
       systemctl is-active --quiet nginx
       if [ $? -eq 0 ]; then
-        echo "Reiniciando máquina virtual: ${{ parameters.vmName }}"
+        echo "Restarting Vm: ${{ parameters.vmName }}"
       else
         echo "Error: Nginx is not active."
         exit 1
