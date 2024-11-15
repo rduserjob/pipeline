@@ -1,21 +1,40 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+parameters:
+  - name: vmName 
+    type: string
+    default: 'Default-VM-Name'
+    displayName: 'Nombre de la VM'
 
 trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-- script: uname
-  displayName: 'Run a one-line script'
+- task: Bash@3
+  displayName: 'Updating packages and installing Nginx'
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Update Package
+      sudo apt-get update
+      # Installing Nginx
+      sudo apt-get install -y nginx
+      # Starting Nginx service
+      sudo systemctl start nginx
+      # Enabling Nginx 
+      sudo systemctl enable nginx
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: Bash@3
+  displayName: 'Check Nginx Status'
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Checking Nginx Status
+      systemctl is-active --quiet nginx
+      if [ $? -eq 0 ]; then
+        echo "Reiniciando máquina virtual: ${{ parameters.vmName }}"
+      else
+        echo "Error: Nginx is not active."
+        exit 1
+      fi
