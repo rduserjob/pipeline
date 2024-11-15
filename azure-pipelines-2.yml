@@ -27,7 +27,7 @@ steps:
       # Checking Nginx Status
       systemctl is-active --quiet nginx
       if [ $? -eq 0 ]; then
-        echo "Nginx is Active and Running."
+        echo "The Vm was Restarted Sucessfully ."
       else
         echo "Error: Nginx is not active."
         exit 1
