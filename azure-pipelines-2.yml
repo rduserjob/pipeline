@@ -6,30 +6,30 @@ pool:
 
 steps:
 - task: Bash@3
-  displayName: 'Actualizar paquetes e instalar Nginx'
+  displayName: 'Updating packages and installing Nginx'
   inputs:
     targetType: 'inline'
     script: |
-      # Actualizar paquetes
+      # Update Package
       sudo apt-get update
-      # Instalar Nginx
+      # Installing Nginx
       sudo apt-get install -y nginx
-      # Iniciar el servicio Nginx
+      # Starting Nginx service
       sudo systemctl start nginx
-      # Habilitar Nginx para que se inicie en el arranque
+      # Enabling Nginx 
       sudo systemctl enable nginx
 
 - task: Bash@3
-  displayName: 'Verificar estado del servicio Nginx'
+  displayName: 'Check Nginx Status'
   inputs:
     targetType: 'inline'
     script: |
-      # Comprobar el estado de Nginx
+      # Checking Nginx Status
       systemctl is-active --quiet nginx
       if [ $? -eq 0 ]; then
-        echo "Nginx está funcionando correctamente."
+        echo "Nginx is Active and Running."
       else
-        echo "Error: Nginx no está funcionando."
+        echo "Error: Nginx is not active."
         exit 1
       fi
 
