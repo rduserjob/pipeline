@@ -1,3 +1,10 @@
+
+parameters:
+  - name: vmName 
+    type: string
+    default: 'Default-VM-Name'
+    displayName: 'Nombre de la VM'
+
 trigger:
 - main
 
